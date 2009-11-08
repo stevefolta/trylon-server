@@ -85,8 +85,20 @@ css = ¶
 
 	div.directory-contents {
 		font-family: arial, sans;
-		font-size: 0.4in;
+		font-size: 1.55em;
 		margin-left: 1em;
+	}
+
+	div.directory {
+		margin-bottom: 0.15em;
+	}
+
+	div.directory a {
+		font-weight: bold;
+	}
+
+	div.file {
+		margin-bottom: 0.25em;
 	}
 
 	div.directory-contents a {
