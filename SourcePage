@@ -1,0 +1,31 @@
+trylon SourcePage
+superclass WebServer Page
+
+field lines
+
+create: file
+	lines = Trylon LinesLexer read: file contents
+
+
+send-body-to: socket
+	socket send: header
+	Trylon PrettyPrinter pretty-print-lines: lines to: socket
+	socket send: footer
+
+
+header = ¶
+	<html>
+	<head>
+		<title> Trylon source code </title>
+		<link rel="stylesheet" href="/index.css" />
+	</head>
+
+	<body>
+	<div class="trylon-code">
+
+
+footer = ¶
+	</div class="trylon-code">
+	</body>
+	</html>
+

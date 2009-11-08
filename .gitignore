@@ -1,0 +1,7 @@
+trylon-server
+
+.c-sources
+.objects
+*.local
+temp*
+

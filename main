@@ -1,0 +1,25 @@
+trylon trylon-server
+
+fields root-dir verbose
+
+
+main: args
+	for arg in args tail
+		log: "Arg: ", arg
+		switch arg
+			"verbose", "-v", "--verbose"
+				verbose = true
+			else
+				# First arg is the directory to serve; other args are ignored for now.
+				if root-dir == nil
+					log: "  ... is the root-dir."
+					root-dir = FileDirectory new: arg
+	
+	server = WebServer new: (PageMapper new: root-dir)
+	server run
+
+
+log: message
+	if verbose
+		send: message
+
