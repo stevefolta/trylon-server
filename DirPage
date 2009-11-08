@@ -33,7 +33,12 @@ send-body-to: socket
 
 
 send-entry: dir type: type named: name to: socket
-	socket send: '<div class="', type, '"><a href="/', path, "/", name, '">'
+	url-path = nil
+	if !path is-empty
+		url-path = path + "/" + name
+	else
+		url-path = name
+	socket send: '<div class="', type, '"><a href="/', url-path, '">'
 	socket send: "\t", name
 	socket send: '</a></div>'
 	socket send: ""
