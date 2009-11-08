@@ -60,6 +60,7 @@ css = ¶
 	div.trylon-code {
 		font-family: arial, sans;
 		margin-left: 1em;
+		width: 8in;
 	}
 
 	div.trylon-block {
