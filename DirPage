@@ -11,10 +11,16 @@ create: dir path: path
 send-body-to: socket
 	socket send: header
 
+	# Need to sort the entries, using a Dictionary for that.
+	entries = Dictionary new
 	for name in dir names
 		if name starts-with: "."
 			continue
-		entry = dir[name]
+		entries[name] = dir[name]
+
+	for pair in entries pairs
+		name = pair key
+		entry = pair value
 		if entry is-directory
 			send-entry: entry type: "directory" named: name to: socket
 		else
