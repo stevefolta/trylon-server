@@ -44,33 +44,6 @@ css = ¶
 	p {
 	}
 
-	div.entry {
-		border-bottom: solid 1px #cccccc;
-		margin-bottom: 1.75em;
-		padding-bottom: 1em;
-	}
-
-	div.entry-title {
-		margin-top: 1.25em;
-		font-family: Arial, Helvetical, sans-serif;
-		font-weight: bolder;
-		font-size: 1.025em;
-	}
-
-	div.entry-date {
-		margin-bottom: 1.05em;
-		font-style: italic;
-		font-size: x-small;
-		color: gray;
-	}
-
-	div.titleless-entry-date {
-		margin-bottom: 0.5em;
-		font-style: italic;
-		font-size: x-small;
-		color: gray;
-	}
-
 	div.page-link {
 		font-family: Arial, Helvetica, sans-serif;
 	}
