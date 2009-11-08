@@ -4,6 +4,7 @@ superclass WebServer Page
 fields dir path
 
 create: dir path: path
+	log: 'New DirPage.  path = "', path, '"'
 	this dir = dir
 	this path = path
 
@@ -21,6 +22,8 @@ send-body-to: socket
 	for pair in entries pairs
 		name = pair key
 		entry = pair value
+		log: " Sending entry: ", name
+		log: "   path: ", path
 		if entry is-directory
 			send-entry: entry type: "directory" named: name to: socket
 		else
@@ -30,7 +33,7 @@ send-body-to: socket
 
 
 send-entry: dir type: type named: name to: socket
-	socket send: '<div class="', type, '"><a href="', path, "/", name, '">'
+	socket send: '<div class="', type, '"><a href="/', path, "/", name, '">'
 	socket send: "\t", name
 	socket send: '</a></div>'
 	socket send: ""
