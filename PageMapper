@@ -18,7 +18,7 @@ at: path
 
 	entry = dir[path]
 	if entry is-directory
-		return DirPage new: entry
+		return DirPage new: entry path: path
 	else
 		return SourcePage new: entry
 
@@ -110,4 +110,13 @@ css = ¶
 		color: gray;
 	}
 
+	div.directory-contents {
+		font-family: arial, sans;
+		font-size: 0.4in;
+		margin-left: 1em;
+	}
+
+	div.directory-contents a {
+		text-decoration: none;
+	}
 

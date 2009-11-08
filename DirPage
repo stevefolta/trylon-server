@@ -1,3 +1,49 @@
 trylon DirPage
 superclass WebServer Page
 
+fields dir path
+
+create: dir path: path
+	this dir = dir
+	this path = path
+
+
+send-body-to: socket
+	socket send: header
+
+	for name in dir names
+		if name starts-with: "."
+			continue
+		entry = dir[name]
+		if entry is-directory
+			send-entry: entry type: "directory" named: name to: socket
+		else
+			send-entry: entry type: "file" named: name to: socket
+
+	socket send: footer
+
+
+send-entry: dir type: type named: name to: socket
+	socket send: '<div class="', type, '"><a href="', path, "/", name, '">'
+	socket send: "\t", name
+	socket send: '</a></div>'
+	socket send: ""
+
+header = ¶
+	<html>
+	<head>
+		<title> Trylon source code </title>
+		<link rel="stylesheet" href="/index.css" />
+	</head>
+
+	<body>
+	<div class="directory-contents">
+
+
+footer = ¶
+	</div>
+	</body>
+	</html>
+
+
+
